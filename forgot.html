@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Forgot Password | Furni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.png">
+  <style>
+    .spinner-border {
+      display: none;
+    }
+    .is-loading .spinner-border {
+      display: inline-block;
+    }
+    .is-loading .btn-text {
+      display: none;
+    }
+    #messageAlert {
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header/Navigation -->
+  <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+    </div>    
+  </nav>
+
+  <!-- Forgot Password Section -->
+  <div class="untree_co-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 mb-5 mb-lg-0">
+          <div class="p-5 bg-white rounded shadow">
+            <h2 class="section-title mb-4">Reset Password</h2>
+            <p class="mb-4">Enter your email address and we'll send you a link to reset your password.</p>
+            
+            <form id="forgotForm" class="mb-4" novalidate>
+              <div class="form-group mb-4">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required>
+                <div class="invalid-feedback">Please provide a valid email address</div>
+              </div>
+              
+              <div id="messageAlert" class="alert d-none mb-4"></div>
+              
+              <button type="submit" class="btn btn-primary w-100">
+                <span class="btn-text">Send Reset Link</span>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              </button>
+            </form>
+            
+            <div class="text-center">
+              <p class="mb-0">Remember your password? <a href="signin.html" class="text-primary">Sign in</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('forgotForm');
+      const alertDiv = document.getElementById('messageAlert');
+      
+      // Form submission handler
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Reset alert and validation
+        alertDiv.classList.add('d-none');
+        form.classList.remove('was-validated');
+        
+        // Validate form
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+        
+        const email = form.email.value;
+        
+        // Set loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.classList.add('is-loading');
+        
+        try {
+          const response = await fetch('http://localhost:3001/api/forgot-password', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email })
+          });
+          
+          const data = await response.json();
+          
+          if (!response.ok) {
+            throw new Error(data.message || 'Failed to send reset link');
+          }
+          
+          // Show success message
+          showAlert('Password reset link has been sent to your email!', 'success');
+          
+          // Clear form
+          form.reset();
+          form.classList.remove('was-validated');
+        } catch (error) {
+          console.error('Error:', error);
+          showAlert(error.message || 'An error occurred while sending the reset link', 'danger');
+        } finally {
+          // Reset loading state
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('is-loading');
+        }
+      });
+      
+      // Show alert message
+      function showAlert(message, type) {
+        alertDiv.textContent = message;
+        alertDiv.classList.remove('d-none', 'alert-success', 'alert-danger', 'alert-warning');
+        alertDiv.classList.add(`alert-${type}`);
+        
+        // Auto-hide after 5 seconds
+        if (type === 'success') {
+          setTimeout(() => {
+            alertDiv.classList.add('d-none');
+          }, 5000);
+        }
+      }
+      
+      // Real-time validation
+      form.email.addEventListener('input', function() {
+        if (this.checkValidity()) {
+          this.classList.remove('is-invalid');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Sign Up | Furni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.png">
+  <style>
+    /* Custom alert styles */
+    .alert-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      width: 350px;
+    }
+    
+    .custom-alert {
+      display: none;
+      animation: slideIn 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+    }
+    
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Alert Container -->
+  <div class="alert-container">
+    <div id="customAlert" class="alert custom-alert" role="alert"></div>
+  </div>
+
+  <!-- Header/Navigation -->
+  <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+    </div>    
+  </nav>
+
+  <!-- Sign Up Section -->
+  <div class="untree_co-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 mb-5 mb-lg-0">
+          <div class="p-5 bg-white rounded shadow">
+            <h2 class="section-title mb-4">Create Account</h2>
+            
+            <form action="#" class="mb-4">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="first-name" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="first-name" placeholder="John" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="last-name" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="last-name" placeholder="Doe">
+                </div>
+              </div>
+              
+              <div class="form-group mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+              </div>
+              
+              <div class="form-group mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Create password" required>
+                <small class="form-text text-muted">Minimum 8 characters</small>
+              </div>
+              
+              <div class="form-group mb-4">
+                <label for="confirm-password" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password" required>
+              </div>
+              
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="terms" required>
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a>
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100 mb-3">Create Account</button>
+            </form>
+            
+            <div class="text-center">
+              <p class="mb-0">Already have an account? <a href="signin.html" class="text-primary">Sign in</a></p>
+            </div>
+            
+            <div class="mt-4 text-center">
+              <p class="mb-3">Or sign up with</p>
+              <a href="#" class="btn btn-white-outline me-2"><i class="fab fa-google"></i></a>
+              <a href="#" class="btn btn-white-outline me-2"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="btn btn-white-outline"><i class="fab fa-apple"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Function to show custom alert
+    function showAlert(message, type = 'success') {
+      const alert = document.getElementById('customAlert');
+      alert.textContent = message;
+      alert.className = `alert custom-alert alert-${type}`;
+      alert.style.display = 'block';
+      
+      // Reset animation by briefly hiding and showing again
+      setTimeout(() => {
+        alert.style.display = 'none';
+        setTimeout(() => {
+          alert.style.display = 'block';
+        }, 10);
+      }, 10);
+      
+      // Auto hide after 3 seconds
+      setTimeout(() => {
+        alert.style.display = 'none';
+      }, 3000);
+    }
+
+    document.querySelector('form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const terms = document.getElementById('terms').checked;
+      
+      // Client-side validation
+      if (!firstName || !email || !password || !confirmPassword) {
+        showAlert('Please fill in all required fields', 'danger');
+        return;
+      }
+      
+      if (password !== confirmPassword) {
+        showAlert('Passwords do not match', 'danger');
+        return;
+      }
+      
+      if (password.length < 8) {
+        showAlert('Password must be at least 8 characters', 'danger');
+        return;
+      }
+      
+      if (!terms) {
+        showAlert('You must agree to the terms and conditions', 'danger');
+        return;
+      }
+      
+      // Disable submit button to prevent multiple submissions
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating account...';
+      
+      try {
+        // Simulate API call (replace with your actual API call)
+        const response = await fetch('http://localhost:3001/api/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            password,
+            confirmPassword
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) throw new Error(data.message || 'Failed to sign up');
+        
+        // Show success message
+        showAlert('Account created successfully! Redirecting to login page...', 'success');
+        
+        // Redirect after 3 seconds
+        setTimeout(() => {
+          window.location.href = 'signin.html';
+        }, 3000);
+        
+      } catch (error) {
+        showAlert(error.message || 'An error occurred during registration', 'danger');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Create Account';
+      }
+    });
+  </script>
+</body>
+</html>

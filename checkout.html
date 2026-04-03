@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Shayan">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Furni - Checkout</title>
+</head>
+
+<body>
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li><a class="nav-link" href="shop.html">Shop</a></li>
+          <li><a class="nav-link" href="about.html">About us</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="blog.html">Blog</a></li>
+          <li><a class="nav-link" href="contact.html">Contact us</a></li>
+        </ul>
+
+        <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+          <li><a class="nav-link" href="#"><img src="images/user.svg" alt="Account"></a></li>
+          <li><a class="nav-link" href="cart.html"><img src="images/cart.svg" alt="Cart"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Header/Navigation -->
+
+  <!-- Start Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-5">
+          <div class="intro-excerpt">
+            <h1>Checkout</h1>
+          </div>
+        </div>
+        <div class="col-lg-7"></div>
+      </div>
+    </div>
+  </div>
+  <!-- End Hero Section -->
+
+  <div class="untree_co-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <div class="border p-4 rounded" role="alert">
+            Already have an account? <a href="#">Login here</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-5 mb-md-0">
+          <h2 class="h3 mb-3">Your Details</h2>
+          <div class="p-3 p-lg-5 border bg-white">
+            <div class="form-group">
+              <label for="c_country">Country <span class="text-danger">*</span></label>
+              <select id="c_country" class="form-control">
+                <option value="1">Select country</option>    
+                <option value="2">Pakistan</option>    
+                <option value="3">United States</option>    
+                <option value="4">United Kingdom</option>    
+                <option value="5">Canada</option>    
+                <option value="6">UAE</option>    
+              </select>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6">
+                <label for="c_fname">First Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_fname" name="c_fname">
+              </div>
+              <div class="col-md-6">
+                <label for="c_lname">Last Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_lname" name="c_lname">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_companyname">Company Name (optional)</label>
+                <input type="text" class="form-control" id="c_companyname" name="c_companyname">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_address">Address <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Street address">
+              </div>
+            </div>
+
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" placeholder="Apartment, suite (optional)">
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-6">
+                <label for="c_state_country">City <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_state_country" name="c_state_country">
+              </div>
+              <div class="col-md-6">
+                <label for="c_postal_zip">Postal Code <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_postal_zip" name="c_postal_zip">
+              </div>
+            </div>
+
+            <div class="form-group row mb-5">
+              <div class="col-md-6">
+                <label for="c_email_address">Email <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_email_address" name="c_email_address">
+              </div>
+              <div class="col-md-6">
+                <label for="c_phone">Phone <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="Phone Number">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="c_create_account" data-bs-toggle="collapse" href="#create_an_account" role="button">
+                <input type="checkbox" value="1" id="c_create_account"> Save my info for next time
+              </label>
+              <div class="collapse" id="create_an_account">
+                <div class="py-2 mb-4">
+                  <div class="form-group">
+                    <label for="c_account_password">Create Password</label>
+                    <input type="password" class="form-control" id="c_account_password" name="c_account_password">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="c_ship_different_address" data-bs-toggle="collapse" href="#ship_different_address" role="button">
+                <input type="checkbox" value="1" id="c_ship_different_address"> Ship to different address?
+              </label>
+              <div class="collapse" id="ship_different_address">
+                <div class="py-2">
+                  <!-- Shipping address fields would go here (same as billing) -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="c_order_notes">Order Notes</label>
+              <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Special instructions..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row mb-5">
+            <div class="col-md-12">
+              <h2 class="h3 mb-3">Coupon Code</h2>
+              <div class="p-3 p-lg-5 border bg-white">
+                <label for="c_code" class="mb-3">Have a coupon? Enter it here</label>
+                <div class="input-group w-75 couponcode-wrap">
+                  <input type="text" class="form-control me-2" id="c_code" placeholder="Coupon Code">
+                  <div class="input-group-append">
+                    <button class="btn btn-black btn-sm" type="button">Apply</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-5">
+            <div class="col-md-12">
+              <h2 class="h3 mb-3">Your Order</h2>
+              <div class="p-3 p-lg-5 border bg-white">
+                <table class="table site-block-order-table mb-5">
+                  <thead>
+                    <th>Product</th>
+                    <th>Total</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Nordic Chair <strong class="mx-2">x</strong> 1</td>
+                      <td>Rs 14,000</td>
+                    </tr>
+                    <tr>
+                      <td>Kruzo Aero Chair <strong class="mx-2">x</strong> 1</td>
+                      <td>Rs 22,000</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Subtotal</strong></td>
+                      <td>Rs 36,000</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Order Total</strong></td>
+                      <td><strong>Rs 36,000</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="border p-3 mb-3">
+                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsebank" role="button">Bank Transfer</a></h3>
+                  <div class="collapse" id="collapsebank">
+                    <div class="py-2">
+                      <p class="mb-0">Pay directly to our bank account. Use your Order ID as reference.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border p-3 mb-3">
+                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsecheque" role="button">Cash on Delivery</a></h3>
+                  <div class="collapse" id="collapsecheque">
+                    <div class="py-2">
+                      <p class="mb-0">Pay when you receive your order.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border p-3 mb-5">
+                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsepaypal" role="button">Credit/Debit Card</a></h3>
+                  <div class="collapse" id="collapsepaypal">
+                    <div class="py-2">
+                      <p class="mb-0">Pay securely with your card.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Complete Order</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Footer Section -->
+  <footer class="footer-section">
+    <div class="container relative">
+      <div class="sofa-img">
+        <img src="images/sofa.png" alt="Sofa" class="img-fluid">
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="subscription-form">
+            <h3 class="d-flex align-items-center">
+              <span class="me-1"><img src="images/envelope-outline.svg" alt="Email" class="img-fluid"></span>
+              <span>Get Updates</span>
+            </h3>
+
+            <form action="#" class="row g-3">
+              <div class="col-auto">
+                <input type="text" class="form-control" placeholder="Your name">
+              </div>
+              <div class="col-auto">
+                <input type="email" class="form-control" placeholder="Your email">
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-primary">
+                  <span class="fa fa-paper-plane"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5 mb-5">
+        <div class="col-lg-4">
+          <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
+          <p class="mb-4">Quality furniture for your home. Comfortable, stylish, and built to last.</p>
+
+          <ul class="list-unstyled custom-social">
+            <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="row links-wrap">
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="about.html">About us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Live Chat</a></li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="shop.html">Nordic Chair</a></li>
+                <li><a href="shop.html">Kruzo Aero</a></li>
+                <li><a href="shop.html">Ergonomic Chair</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-top copyright">
+        <div class="row pt-4">
+          <div class="col-lg-6">
+            <p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed by <a href="https://untree.co">Untree.co</a> and customized by Shayan</p>
+          </div>
+
+          <div class="col-lg-6 text-center text-lg-end">
+            <ul class="list-unstyled d-inline-flex ms-auto">
+              <li class="me-4"><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer Section -->  
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+</html>
